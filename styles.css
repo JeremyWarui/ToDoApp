@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+:root {
+  /* primary colors */
+  --brightBlue: hsl(220, 98%, 61%);
+  --checkedBg: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+
+  /* light theme */
+  --veryLightGray: hsl(0, 0%, 98%);
+  --veryLightGrayishBlue: hsl(236, 33%, 92%);
+  --lightGrayishBlue: hsl(233, 11%, 84%);
+  --darkGrayishBlue: hsl(236, 9%, 61%);
+  --veryDarkGrayishBlue: hsl(235, 19%, 35%);
+
+  /* dark theme */
+  --veryDarkBlue: hsl(235, 21%, 11%);
+  --veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --lightGrayishBlue: hsl(234, 39%, 85%);
+  --lightGrayishBlueHover: hsl(236, 33%, 92%);
+  --darkGrayishBlue: hsl(234, 11%, 52%);
+  --veryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --veryDarkGrayishBlue: hsl(237, 14%, 26%);
+
+  /* fonts */
+
+  --boldFont: 700;
+  --normalFW: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+input {
+  border: none;
+  background-color: transparent;
+  display: block;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+input[type="checkbox"] {
+  margin-right: 1rem;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  /* font-size: 18px; */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 90vh;
+  min-width: 100vw;
+}
+
+header {
+  background-image: url("images/bg-mobile-dark.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  min-height: 200px;
+  min-width: 100vw;
+}
+
+main {
+  /* border: 2px solid hsl(0, 0%, 98%); */
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+footer .attribution {
+  font-size: 11px;
+  text-align: center;
+}
+footer .attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* 
+------------ APP DEFAULTS ---------------
+*/
+
+.item > div,
+.list-status,
+.all-lists,
+.app-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.item,
+.app-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* 
+--------------- app title---------
+ */
+
+.app-header {
+  margin-bottom: 3rem;
+}
+
+/* 
+---------------------- APP CONTAINER --------
+*/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  position: relative;
+  z-index: 10;
+  top: -10rem;
+  /* border: 4px dashed purple; */
+}
+
+.task-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-container > div {
+  background-color: var(--veryDarkGrayishBlue);
+  border-radius: 7px;
+}
+
+.task-container > div:not(.new-entry) > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* -------------task items ----------------- */
+.item,
+.list-status,
+.all-lists,
+.new-entry {
+  padding: 1rem;
+}
+
+.new-entry form {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* 
+------------------ THEMES --------
+*/
+
+.dark {
+  background-color: var(--veryDarkDesaturatedBlue);
+  color: var(--lightGrayishBlue);
+}
+
+.task-container > div {
+  box-shadow: 0 10px 50px var(--veryDarkBlue);
+}
+
+.light {
+  background-color: var(--lightGrayishBlue);
+  color: var(--veryDarkGrayishBlue);
+}

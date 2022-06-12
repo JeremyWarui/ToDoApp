@@ -1,36 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Todo app</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Todo app</title>
 
-  Todo
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="dark">
+    <header></header>
+    <main>
+      <div class="container">
+        <!-- heading -->
+        <div class="app-header">
+          <div>
+            <h1>TODO</h1>
+          </div>
+          <div>
+            <img src="images/icon-sun.svg" alt="theme icon" />
+          </div>
+        </div>
 
-  <!-- Add dynamic number --> items left
+        <div class="task-container">
+          <!-- ADD NEW ITEM -->
+          <div class="new-entry">
+            <form action="" method="post">
+              <input type="checkbox" name="newItem" id="" />
+              <input
+                type="text"
+                name="newItem"
+                id=""
+                placeholder="Create a new todo..."
+              />
+            </form>
+          </div>
+          <!-- LIST OF ITEMS -->
+          <div class="task-list">
+            <!--------- start of form ----------------------->
+            <form action="" method="get">
+              <!-- -----------------  item ----------- -->
+              <div class="item">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                  <p>Buy Groceries</p>
+                </div>
+                <button type="submit">
+                  <img src="images/icon-cross.svg" alt="cancel icon" />
+                </button>
+              </div>
+              <!-- -----------------  item ----------- -->
+              <div class="item">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                  <p>Visit the park</p>
+                </div>
+                <button type="submit">
+                  <img src="images/icon-cross.svg" alt="cancel icon" />
+                </button>
+              </div>
+              <!-- -----------------  item ----------- -->
+              <div class="item">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                  <p class="checked">Take a walk in the evening</p>
+                </div>
+                <button type="submit">
+                  <img src="images/icon-cross.svg" alt="cancel icon" />
+                </button>
+              </div>
+              <!-- -----------------  item ----------- -->
+              <div class="item">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                  <p class="checked">Go out for coffee with Mark</p>
+                </div>
+                <button type="submit">
+                  <img src="images/icon-cross.svg" alt="cancel icon" />
+                </button>
+              </div>
+            </form>
+            <!--------- end of form ----------------------->
+            <!-- progress of tasks -->
+            <div class="list-status">
+              <p>items left</p>
+              <button type="submit">Clear Completed</button>
+            </div>
+          </div>
+          <!-- END OF LIST -->
+          <!-- type of lists -->
+          <div class="all-lists">
+            <div><p>All</p></div>
+            <div><p>Active</p></div>
+            <div><p>Completed</p></div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-  All
-  Active 
-  Completed
+    <!-- Add dynamic number -->
 
-  Clear Completed
-
-  Drag and drop to reorder list
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </footer>
+  </body>
 </html>
