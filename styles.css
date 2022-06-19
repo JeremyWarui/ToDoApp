@@ -17,9 +17,9 @@
   --veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
   --lightGrayishBlue: hsl(234, 39%, 85%);
   --lightGrayishBlueHover: hsl(236, 33%, 92%);
-  --darkGrayishBlue: hsl(234, 11%, 52%);
-  --veryDarkGrayishBlue: hsl(233, 14%, 35%);
-  --veryDarkGrayishBlue: hsl(237, 14%, 26%);
+  --darkGreyishBlue: hsl(234, 11%, 52%);
+  --veryDarkGreyishBlue: hsl(233, 14%, 35%);
+  --veryVeryDarkGreyishBlue: hsl(237, 14%, 26%);
 
   /* fonts */
 
@@ -33,9 +33,16 @@
   box-sizing: border-box;
 }
 
+img {
+  width: 100%;
+  min-height: auto;
+}
+
 button {
   background-color: transparent;
   border: none;
+  font-family: "Josefin Sans", sans-serif;
+  color: var(--lightGrayishBlue);
 }
 
 input {
@@ -51,13 +58,13 @@ input[type="checkbox"] {
 
 body {
   font-family: "Josefin Sans", sans-serif;
-  /* font-size: 18px; */
+  font-size: 18px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 90vh;
+  min-height: 80vh;
   min-width: 100vw;
 }
 
@@ -78,10 +85,11 @@ main {
   position: relative;
 }
 
-footer .attribution {
+footer .attribution div {
   font-size: 11px;
   text-align: center;
 }
+
 footer .attribution a {
   color: hsl(228, 45%, 44%);
 }
@@ -90,14 +98,23 @@ footer .attribution a {
 ------------ APP DEFAULTS ---------------
 */
 
+button .icon {
+  width: 0.7rem;
+}
+
 .item > div,
 .list-status,
 .all-lists,
 .app-header {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   align-items: center;
+}
+
+.item > div,
+.list-status,
+.app-header {
+  justify-content: flex-start;
 }
 
 .item,
@@ -107,12 +124,23 @@ footer .attribution a {
   justify-content: space-between;
 }
 
+.drag-drop {
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: var(--boldFont);
+}
+
 /* 
 --------------- app title---------
  */
 
 .app-header {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+}
+.app-header div h1 {
+  letter-spacing: 0.8rem;
+  font-size: 1.5rem;
+  color: #fff;
 }
 
 /* 
@@ -122,11 +150,10 @@ footer .attribution a {
 .container {
   display: flex;
   flex-direction: column;
-  min-width: 320px;
+  min-width: 330px;
   position: relative;
   z-index: 10;
-  top: -10rem;
-  /* border: 4px dashed purple; */
+  top: -9.5rem;
 }
 
 .task-container {
@@ -136,7 +163,7 @@ footer .attribution a {
 }
 
 .task-container > div {
-  background-color: var(--veryDarkGrayishBlue);
+  background-color: var(--veryDarkDesaturatedBlue);
   border-radius: 7px;
 }
 
@@ -145,12 +172,36 @@ footer .attribution a {
   justify-content: space-between;
 }
 
+.all-lists {
+  justify-content: center;
+}
+
+.all-lists > div {
+  font-size: 0.95rem;
+  font-weight: var(--boldFont);
+}
+
+.all-lists > div:hover {
+  color: var(--brightBlue);
+}
+
+.all-lists > div:nth-of-type(2) {
+  margin: 0 1.5rem;
+}
+
+.all-lists > div,
+.list-status,
+.list-status > button,
+.drag-drop {
+  color: var(--veryDarkGreyishBlue);
+}
+
 /* -------------task items ----------------- */
 .item,
 .list-status,
 .all-lists,
 .new-entry {
-  padding: 1rem;
+  padding: 1.1rem;
 }
 
 .new-entry form {
@@ -162,6 +213,41 @@ footer .attribution a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 0.5px solid var(--veryVeryDarkGreyishBlue);
+}
+
+.item,
+.list-status,
+.drag-drop {
+  font-size: 0.8rem;
+}
+
+/* -------------check box input ----------------- */
+.task-container input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  height: 20px;
+  width: 20px;
+  border: 1px solid var(--veryDarkGreyishBlue);
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+/* .task-container input:checked + p {
+  text-decoration: line-through var(--darkGreyishBlue) 1px;
+  color: var(--veryDarkGreyishBlue);
+} */
+
+/* When the checkbox is checked, add a blue background */
+.task-container input:checked ~ .checkmark {
+  background-color: #2196f3;
 }
 
 /* 
@@ -169,12 +255,12 @@ footer .attribution a {
 */
 
 .dark {
-  background-color: var(--veryDarkDesaturatedBlue);
+  background-color: var(--veryDarkBlue);
   color: var(--lightGrayishBlue);
 }
 
 .task-container > div {
-  box-shadow: 0 10px 50px var(--veryDarkBlue);
+  box-shadow: 0 20px 50px var(--veryDarkBlue);
 }
 
 .light {
