@@ -108,10 +108,8 @@ button .icon {
 .app-header {
   display: flex;
   flex-direction: row;
-  align-items: center;
 }
 
-.item > div,
 .list-status,
 .app-header {
   justify-content: flex-start;
@@ -223,7 +221,26 @@ button .icon {
 }
 
 /* -------------check box input ----------------- */
-.task-container input[type="checkbox"] {
+
+/* Customize the label (the container) */
+.check-container {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  margin-right: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.new-entry .checkmark {
+  top: -10px;
+}
+
+/* Hide the browser's default checkbox */
+.check-container input[type="checkbox"] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -233,6 +250,9 @@ button .icon {
 
 /* Create a custom checkbox */
 .checkmark {
+  position: absolute;
+  top: -4px;
+  left: 0;
   height: 20px;
   width: 20px;
   border: 1px solid var(--veryDarkGreyishBlue);
