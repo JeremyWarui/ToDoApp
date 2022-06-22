@@ -179,8 +179,10 @@ button .icon {
   font-weight: var(--boldFont);
 }
 
-.all-lists > div:hover {
+.all-lists > div:hover,
+.all-lists > div:focus {
   color: var(--brightBlue);
+  cursor: pointer;
 }
 
 .all-lists > div:nth-of-type(2) {
@@ -260,14 +262,35 @@ button .icon {
   margin-right: 1rem;
 }
 
-/* .task-container input:checked + p {
+/* class to add to a checked item */
+.checked-item {
   text-decoration: line-through var(--darkGreyishBlue) 1px;
   color: var(--veryDarkGreyishBlue);
-} */
+}
 
 /* When the checkbox is checked, add a blue background */
-.task-container input:checked ~ .checkmark {
-  background-color: #2196f3;
+.check-container input:checked ~ .checkmark {
+  background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.check-container input:checked ~ .checkmark:after {
+  display: block;
+}
+/* Style the checkmark/indicator */
+.check-container .checkmark:after {
+  background-image: url("images/icon-check.svg");
+  background-repeat: no-repeat;
+  height: 10px;
+  width: 10px;
+  left: 3.6px;
+  top: 4.2px;
 }
 
 /* 
