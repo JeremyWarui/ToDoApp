@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="dark">
+  <body class="light">
     <header></header>
     <main>
       <div class="container">
@@ -26,11 +26,16 @@
             <h1>TODO</h1>
           </div>
           <div>
-            <img class="icon" src="images/icon-sun.svg" alt="theme icon" />
+            <img
+              id="toggleIcon"
+              class="icon"
+              src="images/icon-moon.svg"
+              alt="theme icon"
+            />
           </div>
         </div>
 
-        <div class="task-container">
+        <div class="light task-container">
           <!-- ADD NEW ITEM -->
           <div class="new-entry">
             <form action="" method="post">
@@ -54,7 +59,7 @@
               <div class="item">
                 <div>
                   <label class="check-container">
-                    <input type="checkbox" name="" id="" />
+                    <input class="check-box" type="checkbox" name="" id="" />
                     <span class="checkmark"></span>
                   </label>
                   <p>Buy Groceries</p>
@@ -71,7 +76,7 @@
               <div class="item">
                 <div>
                   <label class="check-container">
-                    <input type="checkbox" name="" id="" />
+                    <input class="check-box" type="checkbox" name="" id="" />
                     <span class="checkmark"></span>
                   </label>
                   <p>Visit the park</p>
@@ -88,7 +93,7 @@
               <div class="item">
                 <div>
                   <label class="check-container">
-                    <input type="checkbox" name="" id="" />
+                    <input class="check-box" type="checkbox" name="" id="" />
                     <span class="checkmark"></span>
                   </label>
                   <p class="checked">Take a walk in the evening</p>
@@ -105,7 +110,24 @@
               <div class="item">
                 <div>
                   <label class="check-container">
-                    <input type="checkbox" name="" id="" />
+                    <input class="check-box" type="checkbox" name="" id="" />
+                    <span class="checkmark"></span>
+                  </label>
+                  <p class="checked">Go out for coffee with Mark</p>
+                </div>
+                <button type="submit">
+                  <img
+                    class="icon"
+                    src="images/icon-cross.svg"
+                    alt="cancel icon"
+                  />
+                </button>
+              </div>
+              <!-- -----------------  item ----------- -->
+              <div class="item">
+                <div>
+                  <label class="check-container">
+                    <input class="check-box" type="checkbox" name="" id="" />
                     <span class="checkmark"></span>
                   </label>
                   <p class="checked">Go out for coffee with Mark</p>
@@ -123,7 +145,7 @@
               <div class="item">
                 <div>
                   <label class="check-container">
-                    <input type="checkbox" name="" id="" />
+                    <input class="check-box" type="checkbox" name="" id="" />
                     <span class="checkmark"></span>
                   </label>
                   <p class="checked">Go for some walk</p>
@@ -141,6 +163,13 @@
             <!-- progress of tasks -->
             <div class="list-status">
               <p><span>5</span> items left</p>
+
+              <div class="desktop all-lists">
+                <div><p>All</p></div>
+                <div><p>Active</p></div>
+                <div><p>Completed</p></div>
+              </div>
+
               <button type="submit">Clear Completed</button>
             </div>
           </div>

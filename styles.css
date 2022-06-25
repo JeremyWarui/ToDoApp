@@ -60,34 +60,27 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  min-height: 80vh;
-  min-width: 100vw;
+  display: grid;
+  place-items: center;
 }
 
 header {
-  background-image: url("images/bg-mobile-dark.jpg");
-  background-repeat: no-repeat;
-  background-position: top;
   min-height: 200px;
   min-width: 100vw;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
 main {
-  /* border: 2px solid hsl(0, 0%, 98%); */
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+  min-height: 400px;
 }
 
-footer .attribution div {
-  font-size: 11px;
+footer {
+  max-width: 350px;
   text-align: center;
+  font-size: 11px;
+  position: relative;
+  bottom: 20px;
 }
 
 footer .attribution a {
@@ -110,7 +103,6 @@ button .icon {
   flex-direction: row;
 }
 
-.list-status,
 .app-header {
   justify-content: flex-start;
 }
@@ -158,10 +150,10 @@ button .icon {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .task-container > div {
-  background-color: var(--veryDarkDesaturatedBlue);
   border-radius: 7px;
 }
 
@@ -182,7 +174,6 @@ button .icon {
 .all-lists > div:hover,
 .all-lists > div:focus {
   color: var(--brightBlue);
-  cursor: pointer;
 }
 
 .all-lists > div:nth-of-type(2) {
@@ -194,6 +185,16 @@ button .icon {
 .list-status > button,
 .drag-drop {
   color: var(--veryDarkGreyishBlue);
+}
+
+.list-status {
+  align-items: center;
+}
+
+.desktop.all-lists {
+  display: none;
+  /* max-width: 30rem; */
+  margin: 0 2rem;
 }
 
 /* -------------task items ----------------- */
@@ -209,17 +210,33 @@ button .icon {
   align-items: center;
 }
 
+.new-entry form input[type="text"]:focus,
+.new-entry form input[type="text"]:active {
+  outline: none;
+  background-color: transparent;
+  color: var(--lightGrayishBlue);
+  font-size: 15px;
+}
+
 .item {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 0.5px solid var(--veryVeryDarkGreyishBlue);
 }
 
 .item,
 .list-status,
 .drag-drop {
   font-size: 0.8rem;
+}
+
+/* pointers */
+.item div p,
+.check-container,
+.all-lists > div:hover,
+.all-lists > div:focus,
+.list-status > button {
+  cursor: pointer;
 }
 
 /* -------------check box input ----------------- */
@@ -230,7 +247,6 @@ button .icon {
   position: relative;
   padding-left: 20px;
   margin-right: 12px;
-  cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -257,7 +273,6 @@ button .icon {
   left: 0;
   height: 20px;
   width: 20px;
-  border: 1px solid var(--veryDarkGreyishBlue);
   border-radius: 50%;
   margin-right: 1rem;
 }
@@ -268,7 +283,7 @@ button .icon {
   color: var(--veryDarkGreyishBlue);
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked, add a background */
 .check-container input:checked ~ .checkmark {
   background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
@@ -290,23 +305,72 @@ button .icon {
   height: 10px;
   width: 10px;
   left: 3.6px;
-  top: 4.2px;
+  top: 5px;
 }
 
 /* 
------------------- THEMES --------
+---------------------------------------------------
+
+                    THEMES 
+
+---------------------------------------------------
 */
 
-.dark {
+/* dark mode */
+
+body.light.dark {
   background-color: var(--veryDarkBlue);
   color: var(--lightGrayishBlue);
 }
 
-.task-container > div {
-  box-shadow: 0 20px 50px var(--veryDarkBlue);
+body.light.dark header {
+  background-image: url("images/bg-mobile-dark.jpg");
 }
 
-.light {
-  background-color: var(--lightGrayishBlue);
+.light.dark.task-container .checkmark {
+  border: 1px solid var(--veryDarkGreyishBlue);
+}
+
+.light.dark.task-container > div {
+  box-shadow: 0 20px 50px var(--veryDarkBlue);
+  background-color: var(--veryDarkDesaturatedBlue);
+}
+.light.dark.task-container .item {
+  border-bottom: 0.5px solid var(--veryVeryDarkGreyishBlue);
+}
+
+/* light mode */
+
+body.light {
+  background-color: var(--veryLightGrayishBlue);
   color: var(--veryDarkGrayishBlue);
+}
+
+body.light header {
+  background-image: url("images/bg-mobile-light.jpg");
+}
+
+.light.task-container > div {
+  background-color: var(--veryLightGray);
+  box-shadow: 0 20px 60px var(--darkGrayishBlue);
+}
+
+.light.task-container .item {
+  border-bottom: 0.5px solid var(--lightGrayishBlue);
+  font-weight: var(--boldFont);
+}
+
+.light.task-container .checked-item {
+  text-decoration: line-through var(--darkGrayishBlue) 1px;
+  color: var(--lightGrayishBlue);
+}
+
+.light.task-container .checkmark {
+  border: 1px solid var(--lightGrayishBlue);
+}
+
+.list-status,
+.list-status > button,
+.drag-drop {
+  color: var(--darkGreyishBlue);
 }
