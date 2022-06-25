@@ -277,12 +277,6 @@ button .icon {
   margin-right: 1rem;
 }
 
-/* class to add to a checked item */
-.checked-item {
-  text-decoration: line-through var(--darkGreyishBlue) 1px;
-  color: var(--veryDarkGreyishBlue);
-}
-
 /* When the checkbox is checked, add a background */
 .check-container input:checked ~ .checkmark {
   background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
@@ -331,6 +325,12 @@ body.light.dark header {
   border: 1px solid var(--veryDarkGreyishBlue);
 }
 
+/* class to add to a checked item in dark mode */
+.light.dark.task-container .checked-item {
+  text-decoration: line-through var(--darkGreyishBlue) 1px;
+  color: var(--veryDarkGreyishBlue);
+}
+
 .light.dark.task-container > div {
   box-shadow: 0 20px 50px var(--veryDarkBlue);
   background-color: var(--veryDarkDesaturatedBlue);
@@ -360,6 +360,7 @@ body.light header {
   font-weight: var(--boldFont);
 }
 
+/* class to add to a checked item in light mode */
 .light.task-container .checked-item {
   text-decoration: line-through var(--darkGrayishBlue) 1px;
   color: var(--lightGrayishBlue);
