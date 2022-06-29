@@ -98,6 +98,7 @@ button .icon {
 .item > div,
 .list-status,
 .all-lists,
+.desktop-all-lists,
 .app-header {
   display: flex;
   flex-direction: row;
@@ -140,7 +141,6 @@ button .icon {
 .container {
   display: flex;
   flex-direction: column;
-  min-width: 330px;
   position: relative;
   z-index: 10;
   top: -9.5rem;
@@ -151,6 +151,7 @@ button .icon {
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
+  min-width: 330px;
 }
 
 .task-container > div {
@@ -162,17 +163,21 @@ button .icon {
   justify-content: space-between;
 }
 
-.all-lists {
+.all-lists,
+.desktop-all-lists {
   justify-content: center;
 }
 
-.all-lists > div {
+.all-lists > div,
+.desktop-all-lists > div {
   font-size: 0.95rem;
   font-weight: var(--boldFont);
 }
 
 .all-lists > div:hover,
-.all-lists > div:focus {
+.all-lists > div:focus,
+.desktop-all-lists > div:hover,
+.desktop-all-lists > div:focus {
   color: var(--brightBlue);
 }
 
@@ -182,6 +187,7 @@ button .icon {
 
 .all-lists > div,
 .list-status,
+.desktop-all-lists,
 .list-status > button,
 .drag-drop {
   color: var(--veryDarkGreyishBlue);
@@ -191,10 +197,8 @@ button .icon {
   align-items: center;
 }
 
-.desktop.all-lists {
-  display: none;
-  /* max-width: 30rem; */
-  margin: 0 2rem;
+.desktop-all-lists {
+  visibility: hidden;
 }
 
 /* -------------task items ----------------- */
@@ -235,8 +239,14 @@ button .icon {
 .check-container,
 .all-lists > div:hover,
 .all-lists > div:focus,
+.desktop-all-lists > div,
 .list-status > button {
   cursor: pointer;
+}
+
+/* close item icon */
+.item .close-item {
+  visibility: visible;
 }
 
 /* -------------check box input ----------------- */
@@ -374,4 +384,70 @@ body.light header {
 .list-status > button,
 .drag-drop {
   color: var(--darkGreyishBlue);
+}
+
+/* 
+---------------------------------------------------
+
+   media query - desktop (more than 375px)
+
+---------------------------------------------------
+*/
+@media screen and (min-width: 380px) {
+  /* item sections */
+  .item .close-item {
+    visibility: hidden;
+  }
+  .item:hover .close-item {
+    visibility: visible;
+  }
+
+  /* header images */
+  body.light.dark header {
+    background-image: url("images/bg-desktop-dark.jpg");
+  }
+
+  body.light header {
+    background-image: url("images/bg-desktop-light.jpg");
+  }
+}
+
+/* laptop */
+@media screen and (min-width: 1000px) {
+  body {
+    max-width: 10ch;
+    overflow-x: hidden;
+  }
+  main {
+    min-height: 400px;
+  }
+  .container {
+    width: 30rem;
+  }
+
+  .drag-drop {
+    margin-top: 0rem;
+  }
+
+  .new-entry form input[type="text"] {
+    width: 370px;
+    color: var(--lightGrayishBlue);
+  }
+
+  .list-status > p {
+    margin-right: 1rem;
+  }
+
+  .all-lists {
+    display: none;
+    height: 0;
+  }
+
+  .desktop-all-lists {
+    visibility: visible;
+  }
+
+  .desktop-all-lists > div:nth-of-type(2) {
+    margin: 0 0.9rem;
+  }
 }
