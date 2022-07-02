@@ -17,3 +17,6 @@
 
 #ignore the design directory
 design.*
+
+# ignore node modules
+node_modules

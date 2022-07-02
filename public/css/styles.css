@@ -304,7 +304,7 @@ button .icon {
 }
 /* Style the checkmark/indicator */
 .check-container .checkmark:after {
-  background-image: url("images/icon-check.svg");
+  background-image: url("../assets/images/icon-check.svg");
   background-repeat: no-repeat;
   height: 10px;
   width: 10px;
@@ -328,7 +328,7 @@ body.light.dark {
 }
 
 body.light.dark header {
-  background-image: url("images/bg-mobile-dark.jpg");
+  background-image: url("../assets/images/bg-mobile-dark.jpg");
 }
 
 .light.dark.task-container .checkmark {
@@ -357,7 +357,7 @@ body.light {
 }
 
 body.light header {
-  background-image: url("images/bg-mobile-light.jpg");
+  background-image: url("../assets/images/bg-mobile-light.jpg");
 }
 
 .light.task-container > div {
@@ -404,11 +404,11 @@ body.light header {
 
   /* header images */
   body.light.dark header {
-    background-image: url("images/bg-desktop-dark.jpg");
+    background-image: url("../assets/images/bg-desktop-dark.jpg");
   }
 
   body.light header {
-    background-image: url("images/bg-desktop-light.jpg");
+    background-image: url("../assets/images/bg-desktop-light.jpg");
   }
 }
 

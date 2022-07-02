@@ -24,9 +24,9 @@ function changeTheme() {
   taskContainer.classList.toggle("dark");
 
   // change icon
-  toggleIcon.src = "./images/icon-sun.svg";
+  toggleIcon.src = "./assets/images/icon-sun.svg";
   if (!body.classList.contains("dark")) {
-    toggleIcon.src = "./images/icon-moon.svg";
+    toggleIcon.src = "./assets/images/icon-moon.svg";
   }
 }
 
@@ -61,4 +61,4 @@ function dragEnd(ev) {
 // function dragLeave() {
 //   console.log("drag left");
 // }
-// 
+//
