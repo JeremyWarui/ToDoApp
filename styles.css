@@ -35,7 +35,7 @@
 
 img {
   width: 100%;
-  min-height: auto;
+  height: auto;
 }
 
 button {
@@ -151,7 +151,7 @@ button .icon {
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
-  min-width: 330px;
+  /* min-width: 320px; */
 }
 
 .task-container > div {

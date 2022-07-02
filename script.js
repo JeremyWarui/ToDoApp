@@ -4,7 +4,7 @@ const body = document.querySelector("body");
 const taskContainer = document.querySelector(".task-container");
 const toggleIcon = document.querySelector("#toggleIcon");
 const headerContain = document.querySelector("header");
-// const headerImage = document.querySelector("");
+const items = document.querySelectorAll(".item");
 
 // checkbox to add a strikethrough on the list
 for (const checkBox of checkBoxes) {
@@ -16,10 +16,6 @@ for (const checkBox of checkBoxes) {
 
 // change the theme of the app whe toggle icon is clicked
 // dark mode
-/*
-1. toggle icon when clicked change the icon to sun icon
-2. change background color f the body and task container
-*/
 
 toggleIcon.addEventListener("click", changeTheme);
 
@@ -33,3 +29,36 @@ function changeTheme() {
     toggleIcon.src = "./images/icon-moon.svg";
   }
 }
+
+// ----------------------drag and drop --------------------
+console.log(items);
+//add eventlisteners for drag and drop
+items.forEach((item) => {
+  item.addEventListener("dragstart", dragStart);
+  item.addEventListener("dragend", dragEnd);
+  // item.addEventListener("dragover", dragOver);
+  // item.addEventListener("dragenter", dragEnter);
+  // item.addEventListener("dragleave", dragLeave);
+  item.addEventListener("drop", dragDrop);
+});
+
+function dragStart(ev) {
+  console.log("drag started", ev.target);
+  ev.dataTransfer.setData("text", ev.target);
+  ev.dataTransfer.effectAllowed = "move";
+}
+
+function dragEnd(ev) {
+  console.log("drag ended", ev.target);
+}
+
+// function dragOver() {
+//   console.log("drag over");
+// }
+// function dragEnter() {
+//   console.log("drag entered");
+// }
+// function dragLeave() {
+//   console.log("drag left");
+// }
+// 
