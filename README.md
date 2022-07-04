@@ -35,12 +35,12 @@ Users should be able to:
 ### Screenshot
 
 - Desktop view:
-  ![desktop light mode](./screenshots/desktop-light.png)
-  ![desktop dark mode](./screenshots/desktop-dark.png)
+  ![desktop light mode](./public/screenshots/desktop-light.png)
+  ![desktop dark mode](./public/screenshots/desktop-dark.png)
 
 - Mobile view:
-  ![mobile light mode](./screenshots/mobile-light.png)
-  ![mobile dark mode](./screenshots/mobile-dark.png)
+  ![mobile light mode](./public/screenshots/mobile-light.png)
+  ![mobile dark mode](./public/screenshots/mobile-dark.png)
 
 ### Links
 
