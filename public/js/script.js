@@ -31,34 +31,3 @@ function changeTheme() {
 }
 
 // ----------------------drag and drop --------------------
-console.log(items);
-//add eventlisteners for drag and drop
-items.forEach((item) => {
-  item.addEventListener("dragstart", dragStart);
-  item.addEventListener("dragend", dragEnd);
-  // item.addEventListener("dragover", dragOver);
-  // item.addEventListener("dragenter", dragEnter);
-  // item.addEventListener("dragleave", dragLeave);
-  item.addEventListener("drop", dragDrop);
-});
-
-function dragStart(ev) {
-  console.log("drag started", ev.target);
-  ev.dataTransfer.setData("text", ev.target);
-  ev.dataTransfer.effectAllowed = "move";
-}
-
-function dragEnd(ev) {
-  console.log("drag ended", ev.target);
-}
-
-// function dragOver() {
-//   console.log("drag over");
-// }
-// function dragEnter() {
-//   console.log("drag entered");
-// }
-// function dragLeave() {
-//   console.log("drag left");
-// }
-//

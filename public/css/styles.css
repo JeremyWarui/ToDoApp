@@ -215,10 +215,11 @@ button .icon {
 }
 
 .new-entry form input[type="text"]:focus,
-.new-entry form input[type="text"]:active {
+.new-entry form input[type="text"]:active,
+.new-entry form input[type="text"] {
   outline: none;
   background-color: transparent;
-  color: var(--lightGrayishBlue);
+  /* color: var(--lightGrayishBlue); */
   font-size: 15px;
 }
 
@@ -331,6 +332,12 @@ body.light.dark header {
   background-image: url("../assets/images/bg-mobile-dark.jpg");
 }
 
+.light.dark.task-container .new-entry form input[type="text"]:active,
+.light.dark.task-container .new-entry form input[type="text"]:focus,
+.light.dark.task-container .new-entry form input[type="text"] {
+  color: var(--lightGrayishBlue);
+}
+
 .light.dark.task-container .checkmark {
   border: 1px solid var(--veryDarkGreyishBlue);
 }
@@ -358,6 +365,12 @@ body.light {
 
 body.light header {
   background-image: url("../assets/images/bg-mobile-light.jpg");
+}
+
+.light.task-container .new-entry form input[type="text"]:active,
+.light.task-container .new-entry form input[type="text"]:focus,
+.light.task-container .new-entry form input[type="text"] {
+  color: var(--veryDarkGrayishBlue);
 }
 
 .light.task-container > div {
@@ -431,7 +444,7 @@ body.light header {
 
   .new-entry form input[type="text"] {
     width: 370px;
-    color: var(--lightGrayishBlue);
+    /* color: var(--lightGrayishBlue); */
   }
 
   .list-status > p {

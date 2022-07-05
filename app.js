@@ -28,8 +28,22 @@ app.set("view engine", "ejs");
 
 // app gettting resources
 
+//our items array
+
+const items = [];
+
 app.get("/", async (req, res) => {
-  res.render("index");
+  res.render("index", { items });
+});
+
+// add item to list
+app.post("/", (req, res) => {
+  const newItem = req.body.newItem;
+  // console.log(newItem);
+  // add the new item
+  items.push(newItem);
+
+  res.redirect("/");
 });
 
 // serving the app
