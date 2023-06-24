@@ -1,0 +1,29 @@
+{
+    "tasks": [
+        {
+            "id": "FhiqJj0LDISF",
+            "task": "Ride a bike",
+            "done": false
+        },
+        {
+            "id": "JCbR9HN0qdBR",
+            "task": "Got out for coffee",
+            "done": false
+        },
+        {
+            "id": "ayRZogVpy4zE",
+            "task": "Read a book",
+            "done": false
+        },
+        {
+            "id": "zcczC57762_T",
+            "task": "Go out for the sunlight",
+            "done": false
+        },
+        {
+            "id": "yv-RKr8F4LD5",
+            "task": "Buy groceries",
+            "done": false
+        }
+    ]
+}

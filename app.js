@@ -1,8 +1,16 @@
 //jsversion:es6
 
-const express = require("express");
-const debug = require("debug")("app");
-const morgan = require("morgan");
+import express from "express";
+import debug from "debug"; ("app");
+import morgan from "morgan";
+
+/* THE ROUTES FILES
+ * 1. index router
+ * 2. tasks router
+ */
+import indexRouter from "./src/routes/indexRouter.js";
+import addTaskRouter from "./src/routes/addTaskRouter.js";
+import updateTaskRouter from "./src/routes/updateTaskRouter.js";
 
 // INITIALISE EXPRESS AND ROUTER
 const app = express();
@@ -28,23 +36,16 @@ app.set("view engine", "ejs");
 
 // app gettting resources
 
-//our items array
+// app.get("/", async (req, res) => {
+//   res.render("index", { items });
+// });
 
-const items = [];
-
-app.get("/", async (req, res) => {
-  res.render("index", { items });
-});
-
-// add item to list
-app.post("/", (req, res) => {
-  const newItem = req.body.newItem;
-  // console.log(newItem);
-  // add the new item
-  items.push(newItem);
-
-  res.redirect("/");
-});
+//use indexrouter middleware
+app.use("/", indexRouter);
+//use addTaskRouter middleware
+app.use("/", addTaskRouter);
+//use updateTaskRouter to update the tasks
+app.use("/:id", updateTaskRouter);
 
 // serving the app
 app.listen(PORT, () => {

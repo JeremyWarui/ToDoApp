@@ -56,48 +56,56 @@
             <!--------- start of form ----------------------->
             <form action="" method="get">
               <!-- -----------------  item ----------- -->
-              <div class="item" draggable="true" data-value="list-item">
-                <div>
-                  <label class="check-container">
-                    <input class="check-box" type="checkbox" name="" id="" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <p>Buy Groceries</p>
+              <% if ( tasks.length === 0 ) { %>
+                <div class="item" draggable="true" data-value="list-item">
+                  <div>
+                    <label class="check-container">
+                      <input class="check-box" type="checkbox" name="" id="" />
+                      <span class="checkmark"></span>
+                    </label>
+                    <p class="item-template">.. your items will be listed here</p>
+                  </div>
+                  <button type="submit" aria-label="close-button">
+                    <img
+                      class="close-item icon"
+                      src="assets/images/icon-cross.svg"
+                      alt="cancel icon"
+                    />
+                  </button>
                 </div>
-                <button type="submit" aria-label="close-button">
-                  <img
-                    class="close-item icon"
-                    src="assets/images/icon-cross.svg"
-                    alt="cancel icon"
-                  />
-                </button>
-              </div>
+               
+              <% } else { %>
 
-              <!-- -----------------  item ----------- -->
-              <% items.forEach(newTask => { %>
-              <div class="item" draggable="true" data-value="list-item">
-                <div>
-                  <label class="check-container">
-                    <input class="check-box" type="checkbox" name="" id="" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <p class="checked"><%= newTask %></p>
-                </div>
-                <button type="submit" aria-label="close-button">
-                  <img
-                    class="close-item icon"
-                    src="assets/images/icon-cross.svg"
-                    alt="cancel icon"
-                  />
-                </button>
-              </div>
+                <% tasks.forEach(newTask => { %>
+                  <div class="item" draggable="true" data-value="list-item">
+                    <div>
+                      <label class="check-container">
+                        <input class="check-box" type="checkbox" name="item" id="<%=newTask.id%>" />
+                        <span class="checkmark"></span>
+                      </label>
+                      <% if (newTask.done === true) { %>
+                        <p class="checked checked-item"><%= newTask['task'] %></p>
+                      <% } else { %>
+                        <p class="checked"><%= newTask['task'] %></p>
+                        <% } %>
+                    </div>
+                    <button type="submit" aria-label="close-button">
+                      <img
+                        class="close-item icon"
+                        src="assets/images/icon-cross.svg"
+                        alt="cancel icon"
+                      />
+                    </button>
+                  </div>
+                  <% }) %>
 
-              <% }) %>
+               <% } %>
+
             </form>
             <!--------- end of form ----------------------->
             <!-- progress of tasks -->
             <div class="list-status">
-              <p><span>5</span> items left</p>
+              <p><span><%= tasks.length %></span> items left</p>
 
               <div class="desktop-all-lists">
                 <div><p>All</p></div>
@@ -105,7 +113,7 @@
                 <div><p>Completed</p></div>
               </div>
 
-              <button type="submit" aria-label="submit">Clear Completed</button>
+              <button class="size" type="submit" aria-label="submit">Clear Completed</button>
             </div>
           </div>
           <!-- END OF LIST -->
@@ -125,7 +133,7 @@
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
-        >. Coded by <a href="#">Jeremy</a>.
+        >. Coded by <a href="https://github.com/JeremyWarui">Jeremy</a>.
       </div>
     </footer>
 

@@ -121,6 +121,15 @@ button .icon {
   font-weight: var(--boldFont);
 }
 
+.size {
+  font-size: 0.9em;
+}
+
+
+.item-template {
+  color: var(--darkGrayishBlue);
+}
+
 /* 
 --------------- app title---------
  */
@@ -232,7 +241,7 @@ button .icon {
 .item,
 .list-status,
 .drag-drop {
-  font-size: 0.8rem;
+  font-size: 0.7em;
 }
 
 /* pointers */
@@ -371,6 +380,7 @@ body.light header {
 .light.task-container .new-entry form input[type="text"]:focus,
 .light.task-container .new-entry form input[type="text"] {
   color: var(--veryDarkGrayishBlue);
+  font-size: 0.8em;
 }
 
 .light.task-container > div {
@@ -435,7 +445,7 @@ body.light header {
     min-height: 400px;
   }
   .container {
-    width: 30rem;
+    width: 33rem;
   }
 
   .drag-drop {
