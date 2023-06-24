@@ -17,10 +17,10 @@ const updateTaskRouter = express.Router();
 import data from "../data/tasks.json" assert {type: 'json'};
 
 //routing index router to serve home page
-updateTaskRouter.route("/:id")
+updateTaskRouter.route("/")
 .get(async (req, res) => {
     
-  console.log(req.params);
+  console.log(req.body);
 //   // add the new item
 //   let newtask = {
 //     task: newItem,

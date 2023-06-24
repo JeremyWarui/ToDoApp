@@ -21,7 +21,6 @@ const addTaskRouter = express.Router();
 addTaskRouter.route("/")
 .post(async (req, res) => {
   const newItem = req.body.newItem;
-  console.log(req.params);
   // add the new item
   let newtask = {
     id: nanoid(12),

@@ -19,6 +19,7 @@
     "async": "^3.2.4",
     "async-each": "^1.0.6",
     "atob": "^2.1.2",
+    "axios": "^1.4.0",
     "balanced-match": "^1.0.2",
     "base": "^0.11.2",
     "basic-auth": "^2.0.1",

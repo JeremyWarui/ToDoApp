@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 const checkBoxes = document.querySelectorAll(".check-box");
 const body = document.querySelector("body");
 const taskContainer = document.querySelector(".task-container");
@@ -6,6 +6,7 @@ const toggleIcon = document.querySelector("#toggleIcon");
 const headerContain = document.querySelector("header");
 const items = document.querySelectorAll(".item");
 const taskItems = document.querySelectorAll(".item p");
+
 
 // checkbox to add a strikethrough on the list
 for (const checkBox of checkBoxes) {
@@ -15,7 +16,7 @@ for (const checkBox of checkBoxes) {
   });
 }
 
-/* check if item has class checked-item, if it does
+/* check if item has class checked-item, if it does when app loads from server
  * 1. set input attribute to :checked to true
  * 2. Else set to false
  */
@@ -33,7 +34,6 @@ SET DEFAULT THEME AFTER RELOAD DEPENDING ON PREV SESSION
 */
 window.onload = (event) => {
   const theme = localStorage.getItem("theme");
-  console.log(theme);
   if (theme === "dark"){
     body.classList.add("dark");
     taskContainer.classList.add("dark");

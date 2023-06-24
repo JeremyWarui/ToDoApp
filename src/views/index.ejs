@@ -54,7 +54,7 @@
           <!-- LIST OF ITEMS -->
           <div class="task-list">
             <!--------- start of form ----------------------->
-            <form action="" method="get">
+            <form action="/" method="get">
               <!-- -----------------  item ----------- -->
               <% if ( tasks.length === 0 ) { %>
                 <div class="item" draggable="true" data-value="list-item">
@@ -80,7 +80,7 @@
                   <div class="item" draggable="true" data-value="list-item">
                     <div>
                       <label class="check-container">
-                        <input class="check-box" type="checkbox" name="item" id="<%=newTask.id%>" />
+                        <input class="check-box" type="checkbox" name="<%=newTask.id%>" id="<%=newTask.id%>" />
                         <span class="checkmark"></span>
                       </label>
                       <% if (newTask.done === true) { %>
@@ -138,6 +138,6 @@
     </footer>
 
     <!-- scripts -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js" type="module"></script>
   </body>
 </html>

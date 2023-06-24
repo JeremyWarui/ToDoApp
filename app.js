@@ -45,7 +45,7 @@ app.use("/", indexRouter);
 //use addTaskRouter middleware
 app.use("/", addTaskRouter);
 //use updateTaskRouter to update the tasks
-app.use("/:id", updateTaskRouter);
+app.use("/", updateTaskRouter);
 
 // serving the app
 app.listen(PORT, () => {
