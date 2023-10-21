@@ -143,6 +143,11 @@ button .icon {
   color: #fff;
 }
 
+/* ----------------- toggleIcon ---------------- */
+#toggleIcon:hover {
+  cursor: pointer;
+}
+
 /* 
 ---------------------- APP CONTAINER --------
 */

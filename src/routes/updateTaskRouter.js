@@ -18,7 +18,7 @@ import data from "../data/tasks.json" assert {type: 'json'};
 
 //routing index router to serve home page
 updateTaskRouter.route("/")
-.get(async (req, res) => {
+.put(async (req, res) => {
     
   console.log(req.body);
 //   // add the new item

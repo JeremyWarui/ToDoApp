@@ -11,9 +11,9 @@ import data from "../data/tasks.json" assert {type: 'json'};
 indexRouter.route("/").get(async (req, res) => {
   // data source of our tasks
   let tasks = [];
-  try {   
+  try {  
     console.log(data);
-    tasks = data.tasks;
+    data.tasks ? tasks = data.tasks : tasks = tasks;
     res.render("index", { tasks });
     
   } catch (error) {

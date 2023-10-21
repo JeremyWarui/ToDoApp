@@ -7,34 +7,41 @@
  */
 
 import express from "express";
-import debug from "debug"; ("app:addTaskRouter");
+import debug from "debug";
+("app:addTaskRouter");
 import fs from "fs";
 import { nanoid } from "nanoid";
 
 // data source of our tasks
-import data from "../data/tasks.json" assert {type: 'json'};
+import data from "../data/tasks.json" assert { type: "json" };
 
 //set the route to the express router function
 const addTaskRouter = express.Router();
 
 //routing index router to serve home page
-addTaskRouter.route("/")
-.post(async (req, res) => {
+addTaskRouter.route("/").post(async (req, res) => {
   const newItem = req.body.newItem;
   // add the new item
   let newtask = {
     id: nanoid(12),
     task: newItem,
-    done: false,
+    completed: false,
   };
   //add new item in the data array
-  data.tasks.push(newtask);
+  try {
+    data.tasks.push(newtask);
+    //write new item in the data file
+    fs.writeFileSync("src/data/tasks.json", JSON.stringify(data));
 
-  //write new item in the data file
-  fs.writeFileSync("src/data/tasks.json", JSON.stringify(data));
+    console.log(`Added "${newtask["task"]}" successfully`);
+  } catch (error) {
+    console.log(error);
+  }
+  finally {
+    res.redirect("/");
+  }
 
-  console.log(`Added "${newtask["task"]}" successfully`);
-  res.redirect("/");
+ 
 });
 
 export default addTaskRouter;

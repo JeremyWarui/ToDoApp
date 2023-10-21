@@ -38,7 +38,7 @@
         <div class="light task-container">
           <!-- ADD NEW ITEM -->
           <div class="new-entry">
-            <form autocomplete="off" action="" method="post">
+            <form class="addNewItem" autocomplete="off" action="/" method="post">
               <label class="check-container">
                 <input type="checkbox" name="newItem" id="" />
                 <span class="checkmark"></span>
@@ -54,7 +54,7 @@
           <!-- LIST OF ITEMS -->
           <div class="task-list">
             <!--------- start of form ----------------------->
-            <form action="/" method="get">
+            <form action="/update" method="post">
               <!-- -----------------  item ----------- -->
               <% if ( tasks.length === 0 ) { %>
                 <div class="item" draggable="true" data-value="list-item">
@@ -63,7 +63,7 @@
                       <input class="check-box" type="checkbox" name="" id="" />
                       <span class="checkmark"></span>
                     </label>
-                    <p class="item-template">.. your items will be listed here</p>
+                    <p class="item-template">your items will be listed here . . .</p>
                   </div>
                   <button type="submit" aria-label="close-button">
                     <img
@@ -83,7 +83,7 @@
                         <input class="check-box" type="checkbox" name="<%=newTask.id%>" id="<%=newTask.id%>" />
                         <span class="checkmark"></span>
                       </label>
-                      <% if (newTask.done === true) { %>
+                      <% if (newTask.completed === true) { %>
                         <p class="checked checked-item"><%= newTask['task'] %></p>
                       <% } else { %>
                         <p class="checked"><%= newTask['task'] %></p>

@@ -6,20 +6,31 @@ const toggleIcon = document.querySelector("#toggleIcon");
 const headerContain = document.querySelector("header");
 const items = document.querySelectorAll(".item");
 const taskItems = document.querySelectorAll(".item p");
+const addNewItem = document.querySelector(".addNewItem");
+const newItem = document.querySelector('input[name="newItem"]');
 
+
+/* 
+----------------------  CHECK BOXES ---------------------
+*/
 
 // checkbox to add a strikethrough on the list
 for (const checkBox of checkBoxes) {
   checkBox.addEventListener("click", function () {
     const itemSelected = checkBox.parentElement.nextElementSibling;
     itemSelected.classList.toggle("checked-item");
+    let checkedItem = itemSelected;
+    localStorage.setItem(checkedItem, true);
+    console.log(itemSelected);
   });
+
 }
 
 /* check if item has class checked-item, if it does when app loads from server
  * 1. set input attribute to :checked to true
  * 2. Else set to false
  */
+
 for (const item of taskItems) {
   let checkItem = item.parentElement.firstElementChild.firstElementChild;
   item.classList.contains("checked-item")
@@ -34,15 +45,14 @@ SET DEFAULT THEME AFTER RELOAD DEPENDING ON PREV SESSION
 */
 window.onload = (event) => {
   const theme = localStorage.getItem("theme");
-  if (theme === "dark"){
+  if (theme === "dark") {
     body.classList.add("dark");
     taskContainer.classList.add("dark");
   } else {
     body.classList.remove("dark");
     taskContainer.classList.remove("dark");
-  }  
+  }
 };
-
 
 // change the theme of the app whe toggle icon is clicked
 // dark mode
@@ -68,5 +78,11 @@ function changeTheme() {
   console.log(current_theme);
   localStorage.setItem("theme", current_theme);
 }
+
+
+/*
+fetch changes from the checkboxes
+*/
+// fetch()
 
 // ----------------------drag and drop --------------------
