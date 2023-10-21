@@ -177,6 +177,9 @@ button .icon {
   justify-content: space-between;
 }
 
+.tasks {
+  flex-direction: column;
+}
 .all-lists,
 .desktop-all-lists {
   justify-content: center;
@@ -325,6 +328,11 @@ button .icon {
   width: 10px;
   left: 3.6px;
   top: 5px;
+}
+
+/* delete button */
+.item .delete-button:hover {
+  cursor: pointer;
 }
 
 /* 

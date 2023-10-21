@@ -9,13 +9,14 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./public/images/favicon-32x32.png"
+      href="./public/assets/images/favicon-32x32.png"
     />
 
     <title>Frontend Mentor | Todo app</title>
 
     <link rel="stylesheet" href="./public/css/styles.css" />
   </head>
+
   <body class="light">
     <header></header>
     <main>
@@ -38,7 +39,7 @@
         <div class="light task-container">
           <!-- ADD NEW ITEM -->
           <div class="new-entry">
-            <form action="" method="post">
+            <form class="addNewItem" method="post">
               <label class="check-container">
                 <input type="checkbox" name="newItem" id="" />
                 <span class="checkmark"></span>
@@ -46,125 +47,137 @@
               <input
                 type="text"
                 name="newItem"
-                id=""
+                id="newTask"
                 placeholder="Create a new todo..."
               />
             </form>
           </div>
           <!-- LIST OF ITEMS -->
           <div class="task-list">
-            <!--------- start of form ----------------------->
-            <form action="" method="get">
-              <!-- -----------------  item ----------- -->
-              <div class="item" draggable="true" data-value="list-item">
-                <div>
-                  <label class="check-container">
-                    <input class="check-box" type="checkbox" name="" id="" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <p>Buy Groceries</p>
-                </div>
-                <button type="submit" aria-label="close-button">
-                  <img
-                    class="close-item icon"
-                    src="public/assets/images/icon-cross.svg"
-                    alt="cancel icon"
-                  />
-                </button>
+            <!-- -----------------  item 0 ----------- -->
+            <div class="item" draggable="true" data-value="list-item">
+              <div>
+                <label class="check-container">
+                  <input class="check-box" type="checkbox" name="" id="" />
+                  <span class="checkmark"></span>
+                </label>
+                <p>Buy Groceries</p>
               </div>
-              <!-- -----------------  item ----------- -->
-              <div class="item" draggable="true" data-value="list-item">
-                <div>
-                  <label class="check-container">
-                    <input class="check-box" type="checkbox" name="" id="" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <p>Visit the park</p>
-                </div>
-                <button type="submit" aria-label="close-button">
-                  <img
-                    class="close-item icon"
-                    src="public/assets/images/icon-cross.svg"
-                    alt="cancel icon"
-                  />
-                </button>
-              </div>
-              <!-- -----------------  item ----------- -->
-              <div class="item" draggable="true" data-value="list-item">
-                <div>
-                  <label class="check-container">
-                    <input class="check-box" type="checkbox" name="" id="" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <p class="checked">Take a walk in the evening</p>
-                </div>
-                <button type="submit" aria-label="close-button">
-                  <img
-                    class="close-item icon"
-                    src="public/assets/images/icon-cross.svg"
-                    alt="cancel icon"
-                  />
-                </button>
-              </div>
-              <!-- -----------------  item ----------- -->
-              <div class="item" draggable="true" data-value="list-item">
-                <div>
-                  <label class="check-container">
-                    <input class="check-box" type="checkbox" name="" id="" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <p class="checked">Go out for coffee with Mark</p>
-                </div>
-                <button type="submit" aria-label="close-button">
-                  <img
-                    class="close-item icon"
-                    src="public/assets/images/icon-cross.svg"
-                    alt="cancel icon"
-                  />
-                </button>
-              </div>
+              <button class="delete-button" aria-label="close-button">
+                <img
+                  class="close-item icon"
+                  src="public/assets/images/icon-cross.svg"
+                  alt="cancel icon"
+                />
+              </button>
+            </div>
 
-              <!-- -----------------  item ----------- -->
-              <div class="item" draggable="true" data-value="list-item">
-                <div>
-                  <label class="check-container">
-                    <input class="check-box" type="checkbox" name="" id="" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <p class="checked">Go for some walk</p>
-                </div>
-                <button type="submit" aria-label="close-button">
-                  <img
-                    class="close-item icon"
-                    src="public/assets/images/icon-cross.svg"
-                    alt="cancel icon"
-                  />
-                </button>
+            <!-- -----------------  item 1 ----------- -->
+            <div class="item" draggable="true" data-value="list-item">
+              <div>
+                <label class="check-container">
+                  <input class="check-box" type="checkbox" name="" id="" />
+                  <span class="checkmark"></span>
+                </label>
+                <p>Visit the park</p>
               </div>
-            </form>
-            <!--------- end of form ----------------------->
+              <button class="delete-button" aria-label="close-button">
+                <img
+                  class="close-item icon"
+                  src="public/assets/images/icon-cross.svg"
+                  alt="cancel icon"
+                />
+              </button>
+            </div>
+            <!-- -----------------  item 2 ----------- -->
+            <div class="item" draggable="true" data-value="list-item">
+              <div>
+                <label class="check-container">
+                  <input class="check-box" type="checkbox" name="" id="" />
+                  <span class="checkmark"></span>
+                </label>
+                <p class="checked">Take a walk in the evening</p>
+              </div>
+              <button class="delete-button" aria-label="close-button">
+                <img
+                  class="close-item icon"
+                  src="public/assets/images/icon-cross.svg"
+                  alt="cancel icon"
+                />
+              </button>
+            </div>
+            <!-- -----------------  item 3 ----------- -->
+            <div class="item" draggable="true" data-value="list-item">
+              <div>
+                <label class="check-container">
+                  <input class="check-box" type="checkbox" name="" id="" />
+                  <span class="checkmark"></span>
+                </label>
+                <p class="checked">Go out for coffee with Mark</p>
+              </div>
+              <button class="delete-button" aria-label="close-button">
+                <img
+                  class="close-item icon"
+                  src="public/assets/images/icon-cross.svg"
+                  alt="cancel icon"
+                />
+              </button>
+            </div>
+
+            <!-- -----------------  item 4 ----------- -->
+            <div class="item" draggable="true" data-value="list-item">
+              <div>
+                <label class="check-container">
+                  <input class="check-box" type="checkbox" name="" id="" />
+                  <span class="checkmark"></span>
+                </label>
+                <p class="checked">Go for some walk</p>
+              </div>
+              <button class="delete-button" aria-label="close-button">
+                <img
+                  class="close-item icon"
+                  src="public/assets/images/icon-cross.svg"
+                  alt="cancel icon"
+                />
+              </button>
+            </div>
+
             <!-- progress of tasks -->
             <div class="list-status">
               <p><span>5</span> items left</p>
 
               <div class="desktop-all-lists">
-                <div><p>All</p></div>
-                <div><p>Active</p></div>
-                <div><p>Completed</p></div>
+                <div>
+                  <p>All</p>
+                </div>
+                <div>
+                  <p>Active</p>
+                </div>
+                <div>
+                  <p>Completed</p>
+                </div>
               </div>
 
-              <button type="submit" aria-label="submit">Clear Completed</button>
+              <button class="clear-all" aria-label="submit">Clear Completed</button>
             </div>
           </div>
           <!-- END OF LIST -->
           <!-- type of lists -->
           <div class="all-lists">
-            <div><p>All</p></div>
-            <div><p>Active</p></div>
-            <div><p>Completed</p></div>
+            <div>
+              <p>All</p>
+            </div>
+            <div>
+              <p>Active</p>
+            </div>
+            <div>
+              <p>Completed</p>
+            </div>
           </div>
         </div>
-        <div class="drag-drop"><p>Drag and drop to reorder list</p></div>
+        <div class="drag-drop">
+          <p>Drag and drop to reorder list</p>
+        </div>
       </div>
     </main>
 

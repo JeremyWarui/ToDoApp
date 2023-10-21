@@ -19,8 +19,8 @@ import data from "../data/tasks.json" assert { type: "json" };
 const addTaskRouter = express.Router();
 
 //routing index router to serve home page
-addTaskRouter.route("/").post(async (req, res) => {
-  const newItem = req.body.newItem;
+addTaskRouter.route("/add").post(async (req, res) => {
+  const newItem = req.body.task;
   // add the new item
   let newtask = {
     id: nanoid(12),
@@ -38,7 +38,7 @@ addTaskRouter.route("/").post(async (req, res) => {
     console.log(error);
   }
   finally {
-    res.redirect("/");
+    res.json({'task': newtask.task});
   }
 
  

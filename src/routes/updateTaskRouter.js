@@ -17,23 +17,24 @@ const updateTaskRouter = express.Router();
 import data from "../data/tasks.json" assert {type: 'json'};
 
 //routing index router to serve home page
-updateTaskRouter.route("/")
-.put(async (req, res) => {
-    
-  console.log(req.body);
-//   // add the new item
-//   let newtask = {
-//     task: newItem,
-//     done: false,
-//   };
-//   //add new item in the data array
-//   data.tasks.push(newtask);
+updateTaskRouter.route("/update/:id")
+.patch(async (req, res) => {
+  const itemId = req.params.id;
+  console.log(data.tasks);
 
-//   //write new item in the data file
-//   fs.writeFileSync("src/data/tasks.json", JSON.stringify(data));
-
-//   console.log(`Added "${newtask["task"]}" successfully`);
-  res.redirect("/");
+  const foundTask = data.tasks.find(item => item.id === itemId);
+  try {
+    if (foundTask) foundTask.completed = true;
+    console.log(foundTask);
+    const jsonFile = fs.createWriteStream('src/data/tasks.json');
+    // Write the modified buffer to the file
+    jsonFile.write(JSON.stringify(data));
+    // Close the file.
+    jsonFile.end();
+  }catch (error) {
+    console.log(error);
+  }
+  res.send({'task': foundTask})
 });
 
 export default updateTaskRouter ;

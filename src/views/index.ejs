@@ -1,143 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/images/favicon-32x32.png"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- displays site properly based on user's device -->
 
-    <title>Frontend Mentor | Todo app</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
 
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body class="light">
-    <header></header>
-    <main>
-      <div class="container">
-        <!-- heading -->
-        <div class="app-header">
-          <div>
-            <h1>TODO</h1>
-          </div>
-          <div>
-            <img
-              id="toggleIcon"
-              class="icon"
-              src="assets/images/icon-moon.svg"
-              alt="theme icon"
-            />
-          </div>
+  <title>Frontend Mentor | Todo app</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="light">
+  <header></header>
+  <main>
+    <div class="container">
+      <!-- heading -->
+      <div class="app-header">
+        <div>
+          <h1>TODO</h1>
         </div>
+        <div>
+          <img id="toggleIcon" class="icon" src="assets/images/icon-moon.svg" alt="theme icon" />
+        </div>
+      </div>
 
-        <div class="light task-container">
-          <!-- ADD NEW ITEM -->
-          <div class="new-entry">
-            <form class="addNewItem" autocomplete="off" action="/" method="post">
-              <label class="check-container">
-                <input type="checkbox" name="newItem" id="" />
-                <span class="checkmark"></span>
-              </label>
-              <input
-                type="text"
-                name="newItem"
-                id="newItem"
-                placeholder="Create a new todo..."
-              />
-            </form>
-          </div>
-          <!-- LIST OF ITEMS -->
-          <div class="task-list">
-            <!--------- start of form ----------------------->
-            <form action="/update" method="post">
-              <!-- -----------------  item ----------- -->
-              <% if ( tasks.length === 0 ) { %>
-                <div class="item" draggable="true" data-value="list-item">
-                  <div>
-                    <label class="check-container">
-                      <input class="check-box" type="checkbox" name="" id="" />
-                      <span class="checkmark"></span>
-                    </label>
-                    <p class="item-template">your items will be listed here . . .</p>
-                  </div>
-                  <button type="submit" aria-label="close-button">
-                    <img
-                      class="close-item icon"
-                      src="assets/images/icon-cross.svg"
-                      alt="cancel icon"
-                    />
-                  </button>
+      <div class="light task-container">
+        <!-- ADD NEW ITEM -->
+        <div class="new-entry">
+          <form class="addNewItem" autocomplete="off" method="post">
+            <label class="check-container">
+              <input type="checkbox" name="newItem" id="" />
+              <span class="checkmark"></span>
+            </label>
+            <input type="text" name="newItem" id="newTask" placeholder="Create a new todo..." />
+          </form>
+        </div>
+        <!-- LIST OF ITEMS -->
+        <div class="task-list">
+          <!-- -----------------  item ----------- -->
+          <div class="tasks">
+            <% if ( tasks.length===0 ) { %>
+              <div class="item" draggable="true" data-value="list-item">
+                <div>
+                  <label class="check-container">
+                    <input class="check-box" type="checkbox" name="" id="" />
+                    <span class="checkmark"></span>
+                  </label>
+                  <p class="item-template">
+                    your items will be listed here . . .
+                  </p>
                 </div>
-               
-              <% } else { %>
+                <button class="delete-button" aria-label="close-button">
+                  <img class="close-item icon" src="assets/images/icon-cross.svg" alt="cancel icon" />
+                </button>
+              </div>
 
-                <% tasks.forEach(newTask => { %>
+              <% } else { %>
+                <% tasks.forEach(newTask=> { %>
                   <div class="item" draggable="true" data-value="list-item">
                     <div>
                       <label class="check-container">
-                        <input class="check-box" type="checkbox" name="<%=newTask.id%>" id="<%=newTask.id%>" />
+                        <input class="check-box" type="checkbox" data-id="<%=newTask.id%>" name="<%=newTask.id%>" />
                         <span class="checkmark"></span>
                       </label>
-                      <% if (newTask.completed === true) { %>
-                        <p class="checked checked-item"><%= newTask['task'] %></p>
-                      <% } else { %>
-                        <p class="checked"><%= newTask['task'] %></p>
-                        <% } %>
+                      <% if (newTask.completed===true) { %>
+                        <p class="checked checked-item" ">
+                          <%= newTask['task'] %>
+                        </p>
+                        <% } else { %>
+                          <p class="checked">
+                            <%= newTask['task'] %>
+                          </p>
+                          <% } %>
                     </div>
-                    <button type="submit" aria-label="close-button">
-                      <img
-                        class="close-item icon"
-                        src="assets/images/icon-cross.svg"
-                        alt="cancel icon"
-                      />
+                    <button class="delete-button" aria-label="close-button">
+                      <img class="close-item icon" src="assets/images/icon-cross.svg" alt="cancel icon" />
                     </button>
                   </div>
+
                   <% }) %>
-
-               <% } %>
-
-            </form>
-            <!--------- end of form ----------------------->
-            <!-- progress of tasks -->
-            <div class="list-status">
-              <p><span><%= tasks.length %></span> items left</p>
-
-              <div class="desktop-all-lists">
-                <div><p>All</p></div>
-                <div><p>Active</p></div>
-                <div><p>Completed</p></div>
-              </div>
-
-              <button class="size" type="submit" aria-label="submit">Clear Completed</button>
-            </div>
+                    <% } %>
           </div>
-          <!-- END OF LIST -->
-          <!-- type of lists -->
-          <div class="all-lists">
-            <div><p>All</p></div>
-            <div><p>Active</p></div>
-            <div><p>Completed</p></div>
+
+
+          <!-- progress of tasks -->
+          <div class="list-status">
+            <p><span>
+                <%= tasks.length %>
+              </span> items left</p>
+
+            <div class="desktop-all-lists">
+              <div>
+                <p>All</p>
+              </div>
+              <div>
+                <p>Active</p>
+              </div>
+              <div>
+                <p>Completed</p>
+              </div>
+            </div>
+
+            <button class="size" type="submit" aria-label="submit">
+              Clear Completed
+            </button>
           </div>
         </div>
-        <div class="drag-drop"><p>Drag and drop to reorder list</p></div>
+        <!-- END OF LIST -->
+        <!-- type of lists -->
+        <div class="all-lists">
+          <div>
+            <p>All</p>
+          </div>
+          <div>
+            <p>Active</p>
+          </div>
+          <div>
+            <p>Completed</p>
+          </div>
+        </div>
       </div>
-    </main>
-
-    <footer class="attribution">
-      <div>
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="https://github.com/JeremyWarui">Jeremy</a>.
+      <div class="drag-drop">
+        <p>Drag and drop to reorder list</p>
       </div>
-    </footer>
+    </div>
+  </main>
 
-    <!-- scripts -->
-    <script src="js/script.js" type="module"></script>
-  </body>
+  <footer class="attribution">
+    <div>
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a
+        href="https://github.com/JeremyWarui">Jeremy</a>.
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script src="js/script.js" type="module"></script>
+</body>
+
 </html>
