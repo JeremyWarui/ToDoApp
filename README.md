@@ -1,6 +1,8 @@
 # Frontend Mentor - Todo app solution
 
-This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a fullstack solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).\
+Frontend Mentor challenges help you improve your coding skills by building realistic projects.\
+
 
 ## Table of contents
 
@@ -34,11 +36,16 @@ Users should be able to:
 
 ### Screenshot
 
-- Desktop view:
+- **Desktop view**:
+
+
   ![desktop light mode](./public/screenshots/desktop-light.png)
   ![desktop dark mode](./public/screenshots/desktop-dark.png)
 
-- Mobile view:
+
+- **Mobile view**:
+
+
   ![mobile light mode](./public/screenshots/mobile-light.png)
   ![mobile dark mode](./public/screenshots/mobile-dark.png)
 
@@ -51,15 +58,47 @@ Users should be able to:
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
+1. **Frontend**: 
+
+* HTML
+* CSS
+* JavaScript
+
+2.  **Server side**
+
+* Express framework
+* Mongo
+
+3. **Concepts**
+
+* CSS custom properties
+* Flexbox
+* Mobile-first workflow
+* Backend architecture - hybrid architecture
+* Database architecture
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+Skills I have applied:
+
+1. Implementing a design to a code base
+2. Basic HTML knowledge and layout including semantics
+3. Use of flexbox in layout using CSS
+4. Use of custom properties in CSS
+5. Manipulation of DOM using Javascript
+6. Application of Fetch API in updating the client side content
+7. Persistent UI(dark/light mode) by using the browser tehcnologies available eg.localstorage
+8. Applying NodeJS in the backend server with express framework
+9. Organise the modules as per each specific purpose eg routers and controllers
+10. Use of templating technologies i.e. ejs for dynamic applications
+11. Design data storage layout in for ease of querying
+12. Using non-relational databases
+13. Creating, Reading, Updating and deleting data using non-relational database
+14. Using version Control in keeping up to date with the changes of the development
+15. Deployment of a fullstack application
+
+
+**Other learnings**
 
 To see how you can add code snippets, see below:
 
@@ -90,7 +129,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 ## Author
 
 - Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@Jeremy Mwangi](https://www.frontendmentor.io/profile/JeremyWarui)
+- Twitter - [@Jeremy Mwangi](https://www.twitter.com/jerywarne7)
+- Github - [@JeremyWarui](https://github.com/JeremyWarui)
 
 ## Acknowledgments
