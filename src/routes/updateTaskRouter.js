@@ -27,7 +27,7 @@ updateTaskRouter.route("/update/:id").patch(async (req, res) => {
     foundTask && foundTask.completed === true
       ? (foundTask.completed = false)
       : (foundTask.completed = true);
-    console.log(foundTask);
+    // console.log(foundTask);
     const jsonFile = fs.createWriteStream("src/data/tasks.json");
     // Write the modified buffer to the file
     jsonFile.write(JSON.stringify(data));

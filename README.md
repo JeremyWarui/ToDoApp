@@ -1,8 +1,7 @@
 # Frontend Mentor - Todo app solution
 
 This is a fullstack solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).\
-Frontend Mentor challenges help you improve your coding skills by building realistic projects.\
-
+Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -38,13 +37,10 @@ Users should be able to:
 
 - **Desktop view**:
 
-
   ![desktop light mode](./public/screenshots/desktop-light.png)
   ![desktop dark mode](./public/screenshots/desktop-dark.png)
 
-
 - **Mobile view**:
-
 
   ![mobile light mode](./public/screenshots/mobile-light.png)
   ![mobile dark mode](./public/screenshots/mobile-dark.png)
@@ -58,24 +54,24 @@ Users should be able to:
 
 ### Built with
 
-1. **Frontend**: 
+1. **Frontend**:
 
-* HTML
-* CSS
-* JavaScript
+- HTML
+- CSS
+- JavaScript
 
-2.  **Server side**
+2. **Server side**
 
-* Express framework
-* Mongo
+- Express framework
+- Mongo
 
 3. **Concepts**
 
-* CSS custom properties
-* Flexbox
-* Mobile-first workflow
-* Backend architecture - hybrid architecture
-* Database architecture
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- Backend architecture - hybrid architecture
+- Database architecture
 
 ### What I learned
 
@@ -97,32 +93,84 @@ Skills I have applied:
 14. Using version Control in keeping up to date with the changes of the development
 15. Deployment of a fullstack application
 
-
 **Other learnings**
 
-To see how you can add code snippets, see below:
+I am proud of these snippets:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+---
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
+```js
+const foundTask = data.tasks.find((item) => item.id === itemId);
+try {
+  foundTask && foundTask.completed === true
+    ? (foundTask.completed = false)
+    : (foundTask.completed = true);
+  // console.log(foundTask);
+  const jsonFile = fs.createWriteStream("src/data/tasks.json");
+  // Write the modified buffer to the file
+  jsonFile.write(JSON.stringify(data));
+  // Close the file.
+  jsonFile.end();
+} catch (error) {
+  console.log(error);
 }
 ```
 
+The purpose is to check whether the checkbox is checked or not and update the data accordingly. This is by use of ternary operator.
+
+---
 ```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
+let itemId = checkBox.getAttribute("data-id");
+// console.log(itemId);
+
+let complete_item;
+// update the task : done or not done
+itemSelected.classList.contains("checked-item")
+  ? (complete_item = {
+      id: itemId,
+      task: newTask.value,
+      completed: true,
+    })
+  : (complete_item = {
+      id: itemId,
+      task: newTask.value,
+      completed: false,
+    });
+
+fetch(`/update/${itemId}`, {
+  method: "PATCH",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(complete_item),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  });
 ```
+
+The code above, checks whether the item is checked or not and uses fetch API to update on the server.
+
+---
+
+```html
+<p>
+  <span>
+    <% let count=0; %> <% for (var i=0; i < tasks.length; i++) {%> <% if
+    (!tasks[i].completed) { %> <% count++; %> <% } %> <% } %> <%= count %>
+  </span>
+  items left
+</p>
+```
+
+The above is for keeping up to date with the number of tasks left after checking the checkbox.
+
+---
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+On future development would be to focus on authentication, adding the client capability to create an account and have his/her own tasks.
 
 ### Useful resources
 

@@ -69,10 +69,10 @@ for (const checkBox of checkBoxes) {
   checkBox.addEventListener("click", function () {
     const itemSelected = checkBox.parentElement.nextElementSibling;
     itemSelected.classList.toggle("checked-item");
-    let checkedItem = itemSelected;
-    console.log(checkedItem);
+    // let checkedItem = itemSelected;
+    // console.log(checkedItem);
     let itemId = checkBox.getAttribute("data-id");
-    console.log(itemId);
+    // console.log(itemId);
 
     let complete_item;
     // update the task : done or not done
@@ -117,11 +117,9 @@ for (const item of taskItems) {
 for (const task of deleteBtns) {
   task.addEventListener("click", function () {
     const itemSelected = task.parentElement;
-    console.log(task);
-    console.log(itemSelected);
 
     let selectedId = itemSelected.getAttribute("data-id");
-    console.log(selectedId);
+    // console.log(selectedId);
     itemSelected.style.display = "none";
 
     fetch(`/delete/${selectedId}`, {
