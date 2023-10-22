@@ -7,28 +7,26 @@ const headerContain = document.querySelector("header");
 const items = document.querySelectorAll(".item");
 const taskItems = document.querySelectorAll(".item p");
 const addNewItem = document.querySelector(".addNewItem");
-// const newItem = document.querySelector('input[name="newItem"]');
+const deleteBtns = document.querySelectorAll(".delete-button");
 const newTask = document.querySelector("#newTask");
 const taskList = document.querySelector(".tasks");
 
 /*
 ----------------------- ADD NEW ITEMS -----------------
 */
-addNewItem.addEventListener('submit', e => {
+addNewItem.addEventListener("submit", (e) => {
   e.preventDefault();
-  let id = 1;
   let list_item = {
-    'task': newTask.value,
-    'completed': false
-  }
+    task: newTask.value,
+    completed: false,
+  };
 
-  addNewItem.reset()
+  addNewItem.reset();
 
   fetch("/add", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(list_item),
-   
   })
     .then((response) => response.json())
     .then((data) => {
@@ -73,14 +71,23 @@ for (const checkBox of checkBoxes) {
     itemSelected.classList.toggle("checked-item");
     let checkedItem = itemSelected;
     console.log(checkedItem);
-    let itemId = checkBox.getAttribute('data-id');
+    let itemId = checkBox.getAttribute("data-id");
     console.log(itemId);
-    
-    let complete_item = {
-      'id': itemId,
-      'task': newTask.value,
-      'completed': true
-    }
+
+    let complete_item;
+    // update the task : done or not done
+    itemSelected.classList.contains("checked-item")
+      ? (complete_item = {
+          id: itemId,
+          task: newTask.value,
+          completed: true,
+        })
+      : (complete_item = {
+          id: itemId,
+          task: newTask.value,
+          completed: false,
+        });
+
     fetch(`/update/${itemId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -89,7 +96,7 @@ for (const checkBox of checkBoxes) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-      })    
+      });
   });
 }
 
@@ -105,13 +112,23 @@ for (const item of taskItems) {
     : (checkItem.checked = false);
 }
 
-/*
------------------------ UPDATE COMPLETE TASKS -----------------
-*/
+/* delete an item/task when deleteis clicked */
 
+for (const task of deleteBtns) {
+  task.addEventListener("click", function () {
+    const itemSelected = task.parentElement;
+    console.log(task);
+    console.log(itemSelected);
 
+    let selectedId = itemSelected.getAttribute("data-id");
+    console.log(selectedId);
+    itemSelected.style.display = "none";
 
-
+    fetch(`/delete/${selectedId}`, {
+      method: "DELETE",
+    });
+  });
+}
 
 /* 
 
@@ -150,7 +167,7 @@ function changeTheme() {
     ? (current_theme = "dark")
     : (current_theme = "light");
 
-  console.log(current_theme);
+  // console.log(current_theme);
   localStorage.setItem("theme", current_theme);
 }
 
