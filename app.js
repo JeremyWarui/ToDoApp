@@ -12,6 +12,8 @@ import indexRouter from "./src/routes/indexRouter.js";
 import addTaskRouter from "./src/routes/addTaskRouter.js";
 import updateTaskRouter from "./src/routes/updateTaskRouter.js";
 import deleteTaskRouter from "./src/routes/deleteTaskRouter.js";
+import completedTasksRouter from "./src/routes/completedTasksRouter.js";
+import activeTasksRouter from "./src/routes/activeTasksRouter.js";
 
 // INITIALISE EXPRESS AND ROUTER
 const app = express();
@@ -43,6 +45,10 @@ app.use("/", addTaskRouter);
 app.use("/", updateTaskRouter);
 // use deleteTaskRouter middleware
 app.use("/", deleteTaskRouter);
+// use completedTasksRouter middleware
+app.use("/", completedTasksRouter);
+// use activeTasksRouter middleware
+app.use("/", activeTasksRouter);
 
 // serving the app
 app.listen(PORT, () => {

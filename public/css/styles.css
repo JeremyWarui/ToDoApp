@@ -33,6 +33,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -125,7 +129,6 @@ button .icon {
   font-size: 0.9em;
 }
 
-
 .item-template {
   color: var(--darkGrayishBlue);
 }
@@ -204,10 +207,15 @@ button .icon {
 
 .all-lists > div,
 .list-status,
-.desktop-all-lists,
+.desktop-all-lists > div > a,
 .list-status > button,
 .drag-drop {
   color: var(--veryDarkGreyishBlue);
+}
+
+.desktop-all-lists > div > a:hover,
+.desktop-all-lists > div a:focus {
+  color: var(--brightBlue);
 }
 
 .list-status {

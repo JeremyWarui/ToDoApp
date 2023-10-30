@@ -8,7 +8,7 @@ import data from "../data/tasks.json" assert {type: 'json'};
 
 
 //routing index router to serve home page
-indexRouter.route("/").get(async (req, res) => {
+indexRouter.route("/all").get(async (req, res) => {
   // data source of our tasks
   let tasks = [];
   try {  
