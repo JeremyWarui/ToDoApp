@@ -10,6 +10,7 @@ const addNewItem = document.querySelector(".addNewItem");
 const deleteBtns = document.querySelectorAll(".delete-button");
 const newTask = document.querySelector("#newTask");
 const taskList = document.querySelector(".tasks");
+const clearCompletedBtn = document.querySelector("#clearCompleted");
 
 /*
 ----------------------- ADD NEW ITEMS -----------------
@@ -127,6 +128,16 @@ for (const task of deleteBtns) {
     });
   });
 }
+
+/* clear completed tasks using a button */
+clearCompletedBtn.addEventListener("click", (e) => {
+  // e.preventDefault();
+  console.log(taskItems);
+  for (let item of taskItems) {
+    let checkItem = item.parentElement.parentElement;
+    if (item.classList.contains("checked-item")) checkItem.style.display = "none";    
+  }
+});
 
 /* 
 
