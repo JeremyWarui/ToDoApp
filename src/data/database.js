@@ -34,32 +34,39 @@ class DBStorage {
 
   async loadData(data) {
     try {
+      let addedItemsCount;
       const collection = this.db.collection("tasks");
       const results = await collection.insertMany(data);
       console.log(`Added ${results.insertedCount} to the collection`);
-      results.insertedIds? addedItemsCount = results.insertedCount : addedItemsCount = 0;
+      results.insertedIds
+        ? (addedItemsCount = results.insertedCount)
+        : (addedItemsCount = 0);
       return addedItemsCount;
     } catch (error) {
       console.error(error);
     }
   }
 
-  async readAllData (collectionName) {
+  async readAllData(collectionName) {
     try {
-        const collection = this.db.collection(collectionName);
-        const results = await collection.find().toArray();
-        console.log(`Found ${results.length} in the ${collectionName} collection`);
-        return results;
-      } catch (error) {
-        console.error(error);
-      }
+      const collection = this.db.collection(collectionName);
+      const results = await collection.find().toArray();
+      console.log(
+        `Found ${results.length} in the ${collectionName} collection`
+      );
+      return results;
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   async addNewData(collectionName, data) {
     try {
       const collection = this.db.collection(collectionName);
       const result = await collection.insertOne(data);
-      console.log(`Added ${result.insertedCount} to the ${collectionName} collection`);
+      console.log(
+        `Added ${result.insertedCount} to the ${collectionName} collection`
+      );
       return result.insertedId;
     } catch (error) {
       console.error(error);
@@ -70,7 +77,9 @@ class DBStorage {
     try {
       const collection = this.db.collection(collectionName);
       const result = await collection.updateOne(query, { $set: data });
-      console.log(`Updated ${result.modifiedCount} in the ${collectionName} collection`);
+      console.log(
+        `Updated ${result.modifiedCount} in the ${collectionName} collection`
+      );
       return result.modifiedCount;
     } catch (error) {
       console.error(error);
@@ -81,7 +90,9 @@ class DBStorage {
     try {
       const collection = this.db.collection(collectionName);
       const result = await collection.deleteOne(query);
-      console.log(`Deleted ${result.deletedCount} from the ${collectionName} collection`);
+      console.log(
+        `Deleted ${result.deletedCount} from the ${collectionName} collection`
+      );
       return result.deletedCount;
     } catch (error) {
       console.error(error);

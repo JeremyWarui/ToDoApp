@@ -19,16 +19,12 @@ indexRouter.route("/all").get(async (req, res) => {
   try {
     console.log(data);
     data.tasks ? (tasks = data.tasks) : (tasks = tasks);
-    // UPLOAD tasks IN mongodb
-    
     //  connect to database
     await dbStorage.connect();
     // load all data from file to database
-    let loadedData = await dbStorage.loadData(tasks);
-    console.log(loadedData);
+    await dbStorage.loadData(tasks);
     // query all data from database
     tasks = await dbStorage.readAllData("tasks");
-    console.log(tasks);
     //  render on the homepage
     res.render("index", { tasks });
   } catch (error) {
