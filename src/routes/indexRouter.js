@@ -24,7 +24,7 @@ indexRouter.route("/all").get(async (req, res) => {
     // load all data from file to database
     await dbStorage.loadData(tasks);
     // query all data from database
-    tasks = await dbStorage.readAllData("tasks");
+    tasks = await dbStorage.readAllData();
     //  render on the homepage
     res.render("index", { tasks });
   } catch (error) {
