@@ -47,12 +47,12 @@ class DBStorage {
     }
   }
 
-  async readAllData(collectionName) {
+  async readAllData() {
     try {
-      const collection = this.db.collection(collectionName);
+      const collection = this.db.collection("tasks");
       const results = await collection.find().toArray();
       console.log(
-        `Found ${results.length} in the ${collectionName} collection`
+        `Found ${results.length} in the ${collection} collection`
       );
       return results;
     } catch (error) {
@@ -60,12 +60,12 @@ class DBStorage {
     }
   }
 
-  async addNewData(collectionName, data) {
+  async addNewData(data) {
     try {
-      const collection = this.db.collection(collectionName);
+      const collection = this.db.collection("tasks");
       const result = await collection.insertOne(data);
       console.log(
-        `Added ${result.insertedCount} to the ${collectionName} collection`
+        `Added ${result.insertedCount} to the ${collection} collection`
       );
       return result.insertedId;
     } catch (error) {
@@ -73,12 +73,12 @@ class DBStorage {
     }
   }
 
-  async updateData(collectionName, query, data) {
+  async updateData(query, data) {
     try {
-      const collection = this.db.collection(collectionName);
+      const collection = this.db.collection("tasks");
       const result = await collection.updateOne(query, { $set: data });
       console.log(
-        `Updated ${result.modifiedCount} in the ${collectionName} collection`
+        `Updated ${result.modifiedCount} in the ${collection} collection`
       );
       return result.modifiedCount;
     } catch (error) {
@@ -86,12 +86,12 @@ class DBStorage {
     }
   }
 
-  async deleteData(collectionName, query, data) {
+  async deleteData(query) {
     try {
-      const collection = this.db.collection(collectionName);
+      const collection = this.db.collection("tasks");
       const result = await collection.deleteOne(query);
       console.log(
-        `Deleted ${result.deletedCount} from the ${collectionName} collection`
+        `Deleted ${result.deletedCount} from the ${collection} collection`
       );
       return result.deletedCount;
     } catch (error) {
