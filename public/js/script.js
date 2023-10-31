@@ -130,12 +130,19 @@ for (const task of deleteBtns) {
 }
 
 /* clear completed tasks using a button */
+
 clearCompletedBtn.addEventListener("click", (e) => {
-  // e.preventDefault();
-  console.log(taskItems);
+  // console.log(taskItems);
   for (let item of taskItems) {
     let checkItem = item.parentElement.parentElement;
-    if (item.classList.contains("checked-item")) checkItem.style.display = "none";    
+    if (item.classList.contains("checked-item")) {
+      checkItem.style.display = "none";
+      let selectedId = checkItem.getAttribute("data-id");
+
+      fetch(`/delete/${selectedId}`, {
+        method: "DELETE",
+      });
+    }
   }
 });
 
