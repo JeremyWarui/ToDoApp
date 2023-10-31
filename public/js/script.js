@@ -79,12 +79,12 @@ for (const checkBox of checkBoxes) {
     // update the task : done or not done
     itemSelected.classList.contains("checked-item")
       ? (complete_item = {
-          id: itemId,
+          _id: itemId,
           task: newTask.value,
           completed: true,
         })
       : (complete_item = {
-          id: itemId,
+          _id: itemId,
           task: newTask.value,
           completed: false,
         });

@@ -1,1 +1,34 @@
-{"tasks":[{"id":"6212tpzYdbxK","task":"Drink tea on Saturday","completed":false}]}
+{
+    "tasks": [
+        {
+            "_id": "6212tpzYdbxK",
+            "task": "Drink tea on Saturday",
+            "completed": false
+        },
+        {
+            "_id": "bZjH09m-oazW",
+            "task": "Read Mindshift book",
+            "completed": true
+        },
+        {
+            "_id": "a8CR1Xg_IZsT",
+            "task": "Go out for shopping",
+            "completed": true
+        },
+        {
+            "_id": "ajZfPnk4X6-l",
+            "task": "Do laundry",
+            "completed": false
+        },
+        {
+            "_id": "HX2tT4b2sgAC",
+            "task": "Bake some cookies",
+            "completed": false
+        },
+        {
+            "_id": "rpi0wZZqOtTg",
+            "task": "Drink some water",
+            "completed": false
+        }
+    ]
+}

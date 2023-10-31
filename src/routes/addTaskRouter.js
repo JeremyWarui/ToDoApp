@@ -23,7 +23,7 @@ addTaskRouter.route("/add").post(async (req, res) => {
   const newItem = req.body.task;
   // add the new item
   let newtask = {
-    id: nanoid(12),
+    _id: nanoid(12),
     task: newItem,
     completed: false,
   };
