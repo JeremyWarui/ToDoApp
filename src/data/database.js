@@ -52,7 +52,7 @@ class DBStorage {
       const collection = this.db.collection("tasks");
       const results = await collection.find().toArray();
       console.log(
-        `Found ${results.length} in the ${collection} collection`
+        `Found ${results.length} in the ${"tasks"} collection`
       );
       return results;
     } catch (error) {
@@ -65,7 +65,7 @@ class DBStorage {
       const collection = this.db.collection("tasks");
       const result = await collection.insertOne(data);
       console.log(
-        `Added ${result.insertedCount} to the ${collection} collection`
+        `Added ${result.insertedId} to the ${"tasks"} collection`
       );
       return result.insertedId;
     } catch (error) {
@@ -76,9 +76,9 @@ class DBStorage {
   async updateData(query, data) {
     try {
       const collection = this.db.collection("tasks");
-      const result = await collection.updateOne(query, { $set: data });
+      const result = await collection.findOneAndUpdate(query, data);
       console.log(
-        `Updated ${result.modifiedCount} in the ${collection} collection`
+        `Updated ${result.modifiedCount} in the ${"tasks"} collection`
       );
       return result.modifiedCount;
     } catch (error) {
