@@ -73,7 +73,7 @@ for (const checkBox of checkBoxes) {
     // let checkedItem = itemSelected;
     // console.log(checkedItem);
     let itemId = checkBox.getAttribute("data-id");
-    // console.log(itemId);
+    console.log(itemId);
 
     let complete_item;
     // update the task : done or not done
@@ -90,7 +90,7 @@ for (const checkBox of checkBoxes) {
         });
 
     fetch(`/update/${itemId}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(complete_item),
     })

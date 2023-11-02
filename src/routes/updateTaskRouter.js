@@ -21,15 +21,16 @@ const uri = `mongodb://127.0.0.1:27017`;
 const dbStorage = new DBStorage(uri, dbName);
 
 //routing index router to serve home page
-updateTaskRouter.route("/update/:id").patch(async (req, res) => {
+updateTaskRouter.route("/update/:id").put(async (req, res) => {
   const itemId = req.params.id;
   console.log(data.tasks);
-
-  const foundTask = data.tasks.find((item) => item.id === itemId);
+  console.log(req.body);
+  let itemToUpdate = req.body;
+  console.log(itemId);
+  console.log(itemToUpdate.completed);
+  const foundTask = data.tasks.find((item) => item._id === itemId);
   try {
-    foundTask && foundTask.completed === true
-      ? (foundTask.completed = false)
-      : (foundTask.completed = true);
+    if (foundTask) foundTask.completed = !foundTask.completed;
     // console.log(foundTask);
     const jsonFile = fs.createWriteStream("src/data/tasks.json");
     // Write the modified buffer to the file
@@ -37,18 +38,18 @@ updateTaskRouter.route("/update/:id").patch(async (req, res) => {
     // Close the file.
     jsonFile.end();
 
-
-    // // connect to database
-    // await dbStorage.connect();
-    // // load data
-    // let result = dbStorage.readAllData();
+    // connect to database
+    await dbStorage.connect();
     // // update task
-    // let new_update = await dbStorage.updateData({_id:itemId}, result )
-    // console.log(new_update);
+    await dbStorage.updateData(
+      { _id: itemId },
+      { $set: { completed: itemToUpdate.completed } }
+    );
+    await dbStorage.disconnect();
   } catch (error) {
     console.log(error);
   }
-  res.send({ task: foundTask });
+  res.send({ task: data.tasks });
 });
 
 export default updateTaskRouter;

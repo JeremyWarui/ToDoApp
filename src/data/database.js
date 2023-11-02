@@ -51,8 +51,32 @@ class DBStorage {
     try {
       const collection = this.db.collection("tasks");
       const results = await collection.find().toArray();
+      console.log(`Found ${results.length} in the ${"tasks"} collection`);
+      return results;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async getCompletedTasks() {
+    try {
+      const collection = this.db.collection("tasks");
+      const results = await collection.find({ completed: true }).toArray();
       console.log(
-        `Found ${results.length} in the ${"tasks"} collection`
+        `Found ${results.length} completed tasks in ${"tasks"} collection`
+      );
+      return results;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async getActiveTasks() {
+    try {
+      const collection = this.db.collection("tasks");
+      const results = await collection.find({ completed: false }).toArray();
+      console.log(
+        `Found ${results.length} pending tasks in ${"tasks"} collection`
       );
       return results;
     } catch (error) {
@@ -64,9 +88,7 @@ class DBStorage {
     try {
       const collection = this.db.collection("tasks");
       const result = await collection.insertOne(data);
-      console.log(
-        `Added ${result.insertedId} to the ${"tasks"} collection`
-      );
+      console.log(`Added ${result.insertedId} to the ${"tasks"} collection`);
       return result.insertedId;
     } catch (error) {
       console.error(error);
@@ -76,9 +98,9 @@ class DBStorage {
   async updateData(query, data) {
     try {
       const collection = this.db.collection("tasks");
-      const result = await collection.findOneAndUpdate(query, data);
+      const result = await collection.updateOne(query, data);
       console.log(
-        `Updated ${result.modifiedCount} in the ${"tasks"} collection`
+        `Updated ${result.matchedCount} in the ${"tasks"} collection`
       );
       return result.modifiedCount;
     } catch (error) {
@@ -91,7 +113,7 @@ class DBStorage {
       const collection = this.db.collection("tasks");
       const result = await collection.deleteOne(query);
       console.log(
-        `Deleted ${result.deletedCount} from the ${collection} collection`
+        `Deleted ${result.deletedCount} item from the ${"tasks"} collection`
       );
       return result.deletedCount;
     } catch (error) {

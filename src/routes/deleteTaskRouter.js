@@ -17,12 +17,18 @@ const deleteTaskRouter = express.Router();
 // data source of our tasks
 import data from "../data/tasks.json" assert { type: "json" };
 
+// DATABASE CONSTANTS
+import DBStorage from "../data/database.js";
+const dbName = "todoapp";
+const uri = `mongodb://127.0.0.1:27017`;
+const dbStorage = new DBStorage(uri, dbName);
+
 //routing delete route to delete a checked item
 deleteTaskRouter.route("/delete/:id").delete(async (req, res) => {
   const itemId = req.params.id;
   console.log(data.tasks);
 
-  const foundTask = data.tasks.findIndex((item) => item.id === itemId);
+  const foundTask = data.tasks.findIndex((item) => item._id === itemId);
   try {
     console.log(foundTask);
     data.tasks.splice(foundTask, 1);
@@ -32,9 +38,18 @@ deleteTaskRouter.route("/delete/:id").delete(async (req, res) => {
     jsonFile.write(JSON.stringify(data));
     // Close the file.
     jsonFile.end();
+
+    // CONNECT TO MONGODB
+    await dbStorage.connect();
+    // query db and delete
+    let deletedItem = await dbStorage.deleteData({_id: itemId});
+    // disconnect db
+    
+    console.log(deletedItem);
   } catch (error) {
     console.log(error);
   }
+  await dbStorage.disconnect();
   res.send({ task: foundTask });
 });
 
