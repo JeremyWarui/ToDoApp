@@ -30,10 +30,11 @@ indexRouter.route("/all").get(async (req, res) => {
   } catch (error) {
     debug(error);
   } finally {
-    await dbStorage.disconnect();
+    // await dbStorage.disconnect();
     res.render("index", { tasks });
   }
   res.render("index", { tasks });
+  // return tasks
 });
 
 export default indexRouter;

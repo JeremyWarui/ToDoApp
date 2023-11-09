@@ -120,6 +120,16 @@ class DBStorage {
       console.error(error);
     }
   }
+
+  async deleteAllData() {
+    try {
+      const collection = this.db.collection("tasks");
+      const result = await collection.deleteMany({});
+      console.log(`Deleted all items from db`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
 
 export default DBStorage;
