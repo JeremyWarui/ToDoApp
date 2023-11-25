@@ -3,6 +3,7 @@ import { expect } from "chai";
 import request from "request";
 import { describe, it } from "mocha";
 import test_data from "../data/tasks.test.json" assert { type: "json" };
+import bodyParser from "body-parser";
 
 const endpoint = "http://localhost:4000/all";
 
@@ -13,15 +14,16 @@ describe("statusCode", () => {
   describe("return right status code", () => {
     it("should return right status code", () => {
       request(endpoint, (err, res, body) => {
-        expect(res.statusCode).to.equal(200);
+        expect(res.statusCode).to.deep.equal(200);
       });
     });
   });
   describe("return right format", () => {
     it("should return right format", () => {
-      request(endpoint, async (err, res, body) => {
-        expect(Array.isArray(response)).to.be.true;
-        expect(response).to.deep.equal(test_data.tasks);
+      request(endpoint, (err, res, body) => {
+        // const content = JSON.parse(body)
+        // expect(Array.isArray(res)).to.be.true;
+        expect(body).to.deep.equal(test_data.tasks);
       });
     });
   });

@@ -256,8 +256,8 @@
     }
   },
   "scripts": {
-    "start": "DEBUG=app,app:* nodemon index.js",
-    "debug": "DEBUG=* nodemon index.js",
+    "start": "DEBUG=app,app:* nodemon app.js",
+    "debug": "DEBUG=* nodemon app.js",
     "test": "node ./node_modules/mocha/bin/mocha tests/**/*.test.js"
   },
   "repository": {

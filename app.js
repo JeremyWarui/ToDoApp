@@ -4,16 +4,8 @@ import express from "express";
 import debug from "debug";
 ("app");
 import morgan from "morgan";
-/* THE ROUTES FILES
- * 1. index router
- * 2. tasks router
- */
-import indexRouter from "./src/routes/indexRouter.js";
-import addTaskRouter from "./src/routes/addTaskRouter.js";
-import updateTaskRouter from "./src/routes/updateTaskRouter.js";
-import deleteTaskRouter from "./src/routes/deleteTaskRouter.js";
-import completedTasksRouter from "./src/routes/completedTasksRouter.js";
-import activeTasksRouter from "./src/routes/activeTasksRouter.js";
+/* THE ROUTES FILES */
+import router from "./src/routes/index.js";
 
 // INITIALISE EXPRESS AND ROUTER
 const app = express();
@@ -38,19 +30,20 @@ app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
 // use indexrouter middleware
-app.use("/", indexRouter);
-// use addTaskRouter middleware
-app.use("/", addTaskRouter);
-// use updateTaskRouter to update the tasks
-app.use("/", updateTaskRouter);
-// use deleteTaskRouter middleware
-app.use("/", deleteTaskRouter);
-// use completedTasksRouter middleware
-app.use("/", completedTasksRouter);
-// use activeTasksRouter middleware
-app.use("/", activeTasksRouter);
+app.use("/", router);
+// // use addTaskRouter middleware
+// app.use("/", addTaskRouter);
+// // use updateTaskRouter to update the tasks
+// app.use("/", updateTaskRouter);
+// // use deleteTaskRouter middleware
+// app.use("/", deleteTaskRouter);
+// // use completedTasksRouter middleware
+// app.use("/", completedTasksRouter);
+// // use activeTasksRouter middleware
+// app.use("/", activeTasksRouter);
 
 // serving the app
 app.listen(PORT, () => {
   debug(`App served from port ${PORT}`);
+  console.log(`App served from port ${PORT}`);
 });

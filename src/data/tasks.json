@@ -1,14 +1,1 @@
-{
-    "tasks": [
-        {
-            "_id": "ajZfPnk4X6-l",
-            "task": "Do laundry",
-            "completed": false
-        },
-        {
-            "_id": "HX2tT4b2sgAC",
-            "task": "Bake some cookies",
-            "completed": false
-        }
-    ]
-}
+{"tasks":[{"_id":"ajZfPnk4X6-l","task":"Do laundry","completed":false},{"_id":"suG0pyV2wQpn","task":"Go out for some walk","completed":true},{"_id":"hrEfIlgBiOw_","task":"Bake cookies","completed":false}]}
