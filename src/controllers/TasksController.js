@@ -29,7 +29,7 @@ class TasksController {
       // query all data from database
       tasks = await dbStorage.readAllData();
       //  render on the homepage
-      //   res.render("index", { tasks });
+      response.render("index", { tasks });
     } catch (error) {
       debug(error);
     } finally {
@@ -40,7 +40,6 @@ class TasksController {
     };
     console.log(json);
     // response.status(200).send(json);
-    response.render('index', { tasks });
   }
 
   static async getCompletedTasks(_request, response) {
@@ -56,18 +55,18 @@ class TasksController {
       // query database with documents that are completed
       tasks = await dbStorage.getCompletedTasks();
       console.log(tasks);
-      await dbStorage.disconnect();
+
+      response.render("index", { tasks });
     } catch (error) {
       debug(error);
     } finally {
-      //   res.render("index", { tasks });
+      await dbStorage.disconnect();
     }
     const json = {
       completed: tasks,
     };
     console.log(json);
     // response.status(200).send(json);
-    response.render('index', { tasks });
   }
 
   static async getActiveTasks(_request, response) {
@@ -81,14 +80,17 @@ class TasksController {
       // query database
       tasks = await dbStorage.getActiveTasks();
       console.log(tasks);
+
+      response.status(200).render("index", { tasks });
     } catch (error) {
       debug(error);
+    } finally {
+      await dbStorage.disconnect();
     }
     const json = {
       tasks: tasks,
     };
     console.log(json);
-    response.status(200).render('index', { tasks });
   }
 
   static async addNewTask(request, response) {
@@ -119,11 +121,9 @@ class TasksController {
       };
       console.log(json);
       //   res.json({ task: newtask.task });
-      
     }
-    response.status(200).json({task: newtask.task});
+    response.status(200).json({ task: newtask.task });
   }
-
 
   static async updateTask(request, response) {
     const itemId = request.params.id;
@@ -191,7 +191,6 @@ class TasksController {
     };
     response.status(200).send(json);
   }
-
 }
 
 export default TasksController;
